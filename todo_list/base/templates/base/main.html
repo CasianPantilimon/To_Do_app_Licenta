@@ -3,37 +3,30 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description"
-        content="some random content">
-
+    <meta name="description" content="some random content">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>To Do Items</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: #FAFAFA;
+            margin: 0;
             font-family: 'Nunito', sans-serif;
             padding-top: 50px;
+            overflow: hidden;
+            position: relative;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-            {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Raleway', sans-serif;
         }
 
-        a,
-        p {
-            color: #4b5156
+        a, p {
+            color: #4b5156;
         }
 
         a {
@@ -43,14 +36,19 @@
         .container {
             max-width: 550px;
             margin: auto;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
             box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         input {
             outline: none;
             border: none;
+            margin: 3px;
         }
 
         .header-bar {
@@ -59,7 +57,7 @@
             color: #fff;
             padding: 10px;
             border-radius: 5px 5px 0 0;
-            background: linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(30, 30, 30, 0.8));
         }
 
         .header-bar a {
@@ -71,7 +69,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #fff;
+            background-color: #f8f9fa; /* Light grey color */
             border-top: 1px solid #dfe4ea;
             overflow: hidden;
         }
@@ -110,8 +108,6 @@
             padding: 20px 0px;
         }
 
-        /*Handle Classes*/
-
         .handle {
             display: inline-block;
             padding: 20px 16px;
@@ -119,15 +115,12 @@
             user-select: none;
         }
 
-        .handle:after,
-        .handle:before {
+        .handle:after, .handle:before {
             display: block;
             content: "";
         }
 
-        .handle:active,
-        .handle:active:before,
-        .handle:active:after {
+        .handle:active, .handle:active:before, .handle:active:after {
             cursor: grabbing;
         }
 
@@ -141,7 +134,6 @@
             opacity: 0.6;
         }
 
-
         #add-link {
             color: #EB796F;
             text-decoration: none;
@@ -154,17 +146,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+            background-color: #e0e1e3;
+
         }
 
-        @media screen and (max-width:320px) {
+        @media screen and (max-width: 320px) {
             #search-add-wrapper {
                 padding: 10px;
             }
         }
 
-        input[type=text],
-        input[type=password],
-        textarea {
+        input[type=text], input[type=password], textarea {
             border: 1px solid #757575;
             border-radius: 5px;
             padding: 10px;
@@ -195,16 +187,31 @@
         .card-body {
             padding: 20px;
         }
+
+        /* Background with Earth image */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://media.istockphoto.com/id/1200175377/photo/trees-grow-on-craggy-mountains-near-lake-ritsa.webp?a=1&s=612x612&w=0&k=20&c=cA8N_Zwz8-OOeoIzBYFHNdXWqh58wrC_uLmBnfdXSGQ=');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: 0;
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="background"></div> <!-- Background with Earth image -->
 
     <div class="container">
         {% block content %} {% endblock content %}
     </div>
 
 </body>
-
 
 </html>
